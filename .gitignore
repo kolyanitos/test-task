@@ -4,3 +4,4 @@
 !/web/images/tasks/.gitkeep
 /app/cache/
 *php~
+/app/config/app.yml

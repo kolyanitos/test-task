@@ -1,0 +1,7 @@
+dev_mode: true
+
+orm:
+  driver: pdo_mysql
+  user: root
+  password: root
+  dbname: test_task
