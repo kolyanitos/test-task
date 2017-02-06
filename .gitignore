@@ -1,0 +1,4 @@
+/.idea/
+/vendor/
+/web/images/tasks/*
+!/web/images/tasks/.gitkeep
