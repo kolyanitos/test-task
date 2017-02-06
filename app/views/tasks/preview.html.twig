@@ -1,0 +1,21 @@
+<div class="row ph-lg pv-lg">
+  <div class="col-lg-6">
+    <p>
+      <b>Username:</b> {{ task.username ?? '' }}
+      <br>
+      <b>Email:</b> {{ task.email ?? '' }}
+      <br>
+      <b>Description:</b> {{ task.description ?? '' }}
+      <br>
+      <b>Done:</b> {% if task.isDone %}YES{% else %}NO{% endif %}
+    </p>
+  </div>
+  <div class="col-lg-6">
+    <b>Image:</b>
+    <div>
+      {% if task.image is not empty %}
+        <img src="/images/tasks/{{ task.image }}" alt="">
+      {% endif %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+task_list:
+  path: /
+  controller: 'App\Controller\TaskController::listAction'
+
+add_task:
+  path: /add
+  controller: 'App\Controller\TaskController::addAction'
+
+edit_task:
+  path: /edit/{id}
+  controller: 'App\Controller\TaskController::editAction'
+
+preview_task:
+  path: /preview
+  controller: 'App\Controller\TaskController::previewAction'
+
+login:
+  path: /login
+  controller: 'App\Controller\UserController::loginAction'
+
+logout:
+  path: /logout
+  controller: 'App\Controller\UserController::logoutAction'

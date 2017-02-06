@@ -1,0 +1,66 @@
+{% extends 'index.html.twig' %}
+
+{% block content %}
+  <div class="pv-lg">
+    <a href="/add" class="btn btn-success">Add task</a>
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>
+        Username <a href="/?sort=username&order=asc">asc</a> <a href="/?sort=username&order=desc">desc</a>
+      </th>
+      <th>Email <a href="/?sort=email&order=asc">asc</a> <a href="/?sort=email&order=desc">desc</a></th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Done <a href="/?sort=isDone&order=asc">asc</a> <a href="/?sort=isDone&order=desc">desc</a></th>
+      {% if app.user and app.user.role == 'ROLE_ADMIN' %}
+        <th>Action</th>
+      {% endif %}
+    </tr>
+    </thead>
+    <tbody>
+    {% if tasks is not empty %}
+      {% for task in tasks %}
+        <tr>
+          <td>
+            {{ task.username }}
+          </td>
+          <td>
+            {{ task.email }}
+          </td>
+          <td>
+            {{ task.description }}
+          </td>
+          <td>
+            {% if task.image is not empty %}
+              <img src="/images/tasks/{{ task.image }}" alt="" width="320" height="240">
+            {% else %}
+              No image
+            {% endif %}
+          </td>
+          <td>
+            {% if task.isDone %}
+              YES
+            {% else %}
+              NO
+            {% endif %}
+          </td>
+          {% if app.user and app.user.role == 'ROLE_ADMIN' %}
+            <td>
+              <a href="/edit/{{ task.id }}">edit</a>
+            </td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    {% else %}
+      <tr>
+        <td colspan="{% if app.user and app.user.role == 'ROLE_ADMIN' %}6{% else %}5{% endif %}">
+          <h4>There are no tasks</h4>
+        </td>
+      </tr>
+    {% endif %}
+    </tbody>
+  </table>
+{% endblock %}

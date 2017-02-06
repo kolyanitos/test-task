@@ -1,0 +1,15 @@
+{% if app.user %}
+  <p>
+    Welcome, {{ app.user.username }}! <a href="/logout" class="btn btn-xs btn-primary">Logout</a>
+  </p>
+{% else %}
+  <form class="form-inline" action="/login" method="post">
+    <div class="form-group">
+      <input name="username" type="text" placeholder="Username" class="form-control" id="username">
+    </div>
+    <div class="form-group">
+      <input name="password"  type="password" placeholder="Password" class="form-control" id="pwd">
+    </div>
+    <button type="submit" class="btn btn-default">Login</button>
+  </form>
+{% endif %}
