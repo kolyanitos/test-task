@@ -3,3 +3,4 @@
 /web/images/tasks/*
 !/web/images/tasks/.gitkeep
 /app/cache/
+*php~
